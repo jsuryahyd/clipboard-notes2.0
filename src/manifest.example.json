@@ -1,0 +1,33 @@
+{
+  "name": "Clip Board & Notes",
+  "version": "0.2.1",
+  "description": "Sticky notes in browser",
+  "oauth2": {
+      "client_id": "5fl7l3ujg9va2ibcakj0pb2.ap9s.googleusercontent.com",
+      "scopes": [
+          "https://www.googleapis.com/auth/drive.appdata",
+          "https://www.googleapis.com/auth/drive.file"
+      ]
+  },
+  "manifest_version": 2,
+  "permissions": [
+      "storage",
+      "declarativeContent",
+      "activeTab",
+      "clipboardRead",
+      "clipboardWrite",
+      "webNavigation",
+      "identity"
+  ],
+  "background": {
+      "page":"background.html"
+  },
+  "content_security_policy": "script-src 'self' https://apis.google.com 'unsafe-eval'; object-src 'self'",
+  "browser_action": {
+      "default_popup": "popup.html"
+  },
+  "options_page": "options.html",
+  "icons": {
+      "128": "note_69.png"
+  }
+}

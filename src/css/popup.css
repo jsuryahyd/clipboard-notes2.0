@@ -1,0 +1,252 @@
+@font-face {
+  font-family: iconFont;
+  src: url("../fonts/icomoon.woff");
+}
+
+html {
+  padding: 0;
+  margin: 0;
+  --card-bg: #606060;
+  --theme-color: #606060;
+  --text-color: #ffffff;
+  --card-border-color: #ffffff;
+  font-size: 12px;
+  /* margin-top: 20px; */
+}
+
+html,
+* {
+  /* scroll-behavior: smooth; */
+  box-sizing: border-box;
+}
+body {
+  background-color: var(--theme-color, dimgray);
+  width: 350px;
+  min-height: 400px;
+  margin: 0;
+  padding: 0;
+  /* padding-bottom: 10px; */
+  color: var(--text-color, "#fff");
+  /* background-image: url("./icons/linen-texture.jpg"); */
+}
+* {
+  color: var(--text-color, "#333333");
+}
+
+/*quilljs editor*/
+.notes-list > li > .ql-container,
+.notes-list > li > .ql-container.ql-snow {
+  border: none !important;
+}
+
+.ql-editor img {
+  max-width: 100%;
+}
+
+#main_section {
+  max-height: calc(100% - 50px);
+  overflow: auto;
+  padding: 50px 10px 10px;
+}
+#cards_container {
+}
+
+.content_card {
+  border-radius: 4px;
+  /* border: 1px solid; */
+  /* border-color: var(--card-bg, "#f3f3f3"); */
+  border-color: var(--card-border-color, "#ffffff");
+  background-color: var(--card-bg, "#f3f3f3");
+  min-height: 60px;
+  /* background-image: url("./icons/painting.webp"); */
+  /* max-height: 200px; */
+
+  margin-bottom: 10px;
+  transition: height 0.3s;
+}
+@keyframes glow {
+  0% {
+    box-shadow: none;
+  }
+  30% {
+    box-shadow: 0px 0px 15px white; /*#e8453c;*/
+  }
+  80% {
+    box-shadow: 0px 0px 15px white; /*#e8453c;*/
+  }
+  100% {
+    box-shadow: none;
+  }
+}
+
+.content_card * {
+  max-width: 100%;
+  white-space: break-word;
+}
+.content_card h4 {
+  margin-top: 0;
+}
+
+.content_card--dummy {
+  border-style: dashed;
+  border-color: var(--card-bg, "#ffffff");
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--card-bg, "#ffffff");
+  cursor: pointer;
+  height: 100px;
+}
+
+.card__title,
+.card__actions {
+  width: 70%;
+  display: inline-block;
+  vertical-align: top;
+  margin-bottom: 0;
+}
+.card__actions {
+  width: 30%;
+  display: inline-flex;
+  justify-content: space-evenly;
+}
+
+.card__actions img {
+  width: 15px !important;
+  height: 15px !important;
+}
+
+.note-content {
+  font-family: inherit;
+  display: block;
+  width: 100%;
+  padding: 4px;
+  min-height: 60px;
+  border: 1px solid transparent;
+  background: transparent;
+  resize: none; /* remove diagonal lines on right-bottom corner */
+}
+
+.note-content {
+  box-sizing: border-box;
+}
+
+.note-content:focus {
+  /* border: 1px solid rgba(0, 0, 0, 0.2); */
+  border-radius: 4px;
+  /* padding: 8px; */
+
+  /* background-color:#e3e3e3 */
+}
+
+.note-content:focus {
+  outline: none;
+  /* border:1px solid #333 */
+}
+
+::-webkit-scrollbar {
+  width: 0;
+}
+
+/*helpers*/
+.btn--no_style {
+  background: transparent;
+  border: 0;
+  display: inline-block;
+}
+
+.btn--no_style:active,
+.btn--no_style:focus {
+  outline: none;
+}
+
+.card__action-btn {
+  transition: transform 0.2s;
+  cursor: pointer;
+}
+
+.card__header {
+  margin-bottom: 0;
+  padding: 8px;
+  border-bottom: 1px solid #cccccc;
+}
+
+.card__action-btn:hover {
+  transform: scale(1.3);
+}
+#save_card_btn {
+  cursor: pointer;
+  float: right;
+  text-align: right;
+}
+#save_card_btn img {
+  width: 18px;
+  height: 18px;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+@keyframes fadeOut {
+  100% {
+    opacity: 0;
+  }
+  0% {
+    opacity: 100%;
+  }
+}
+
+.card__action-btn {
+  display: initial;
+  animation: fadeIn 0.2s;
+}
+.card__action-btn.card__action--save {
+  display: none;
+  animation: fadeOut 0.2s;
+  font-size: 12px;
+  padding: 4px;
+  background: transparent;
+  color: var(--text-color);
+  border: 1px solid var(--text-color);
+  height: 20px;
+  line-height: 20px;
+  padding: 0 5px;
+  border-radius: 2px;
+  margin-left: auto;
+}
+.card__action-btn.card__action--save:hover {
+  transform: none;
+}
+.edit-mode .card__action-btn {
+  display: initial;
+  animation: fadeOut 0.2s;
+  display: none;
+}
+.edit-mode .card__action-btn.card__action--save {
+  display: initial;
+  animation: fadeIn 0.2s;
+}
+
+/*utilities*/
+.clearfix {
+  overflow: auto;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+.d-none {
+  display: none;
+  transition: opacity 0.2s linear;
+}
+
+.m-0 {
+  margin: 0 !important;
+}
